@@ -16,6 +16,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 
 /**
  *
@@ -28,7 +29,10 @@ public class Server {
      */
     public static void main(String[] args) {
         int port = 2002;
+        
+        
         try {
+
             ServerSocket ss = new ServerSocket(port);
             Socket s = ss.accept();
             InputStream is = s.getInputStream();
@@ -37,13 +41,15 @@ public class Server {
             if (to != null) {
                 System.out.println(to);
             }
-            
-            
+
             is.close();
             s.close();
             ss.close();
         } catch (Exception e) {
             System.out.println(e);
         }
+
     }
+
 }
+
